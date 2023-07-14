@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+[![Image from Gyazo](https://i.gyazo.com/2a2940c8804478dd53e97f1fd3705954.png)](https://gyazo.com/2a2940c8804478dd53e97f1fd3705954)
