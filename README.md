@@ -1,32 +1,9 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # アプリケーション名	
 シン・3日坊主
+
 # アプリケーション概要
-* このアプリケーションでできることを記載。
+* 自分が今までちょっと試してみたかったことのログを残すことができる
+* ユーザー同士で応援し合い、新しいチャレンジの情報を得ることができる
 
 # URL
 * デプロイ済みのURLを記載。デプロイが済んでいない場合は、デプロイが完了次第記載すること。
@@ -38,10 +15,11 @@ Things you may want to cover:
 * このアプリケーションの利用方法を記載。説明が長い場合は、箇条書きでリスト化すること。
 
 # アプリケーションを作成した背景
-* このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記載。
+* 20・30代の若手社会人「勉強しようと思うけど続かなくて・・・・」という悩みに「続けようと思えるものに出会えていないのでは」という答えを。
+* 一般的に「続けられない・3日坊主」という言葉を「たくさんのことを試している・新たな経験ができている」という意味合いに変換したかった
 
 # 洗い出した要件
-* 要件定義をまとめたスプレッドシートのリンクを記載。
+* https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9-O8/edit#gid=1785908763
 
 # 実装した機能についての画像やGIFおよびその説明
 * 実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
