@@ -28,10 +28,10 @@ https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9
 * 洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
 # データベース設計
-* [![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
+[![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
 
 # 画面遷移図
-* [![Image from Gyazo](https://i.gyazo.com/75e6d53127518fad314d29f89da80565.png)](https://gyazo.com/75e6d53127518fad314d29f89da80565)
+[![Image from Gyazo](https://i.gyazo.com/75e6d53127518fad314d29f89da80565.png)](https://gyazo.com/75e6d53127518fad314d29f89da80565)
 
 # 開発環境
 * 使用した言語・サービスを記載。
