@@ -19,7 +19,7 @@
 * 一般的に「続けられない・3日坊主」という言葉を「たくさんのことを試している・新たな経験ができている」という意味合いに変換したかった
 
 # 洗い出した要件
-* https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9-O8/edit#gid=1785908763
+https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9-O8/edit#gid=1785908763
 
 # 実装した機能についての画像やGIFおよびその説明
 * 実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
@@ -28,7 +28,7 @@
 * 洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
 # データベース設計
-* ER図を添付。
+* [![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
 
 # 画面遷移図
 * 画面遷移図を添付。
