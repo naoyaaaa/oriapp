@@ -31,7 +31,7 @@ https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9
 * [![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
 
 # 画面遷移図
-* 画面遷移図を添付。
+* [![Image from Gyazo](https://i.gyazo.com/75e6d53127518fad314d29f89da80565.png)](https://gyazo.com/75e6d53127518fad314d29f89da80565)
 
 # 開発環境
 * 使用した言語・サービスを記載。
