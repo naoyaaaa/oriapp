@@ -70,7 +70,7 @@
                 <mxCell id="45" value="day_number" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="24">
                     <mxGeometry y="82" width="160" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="goal" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="24">
+                <mxCell id="31" value="content" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="24">
                     <mxGeometry y="108" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" style="edgeStyle=none;html=1;endArrow=ERoneToMany;endFill=0;exitX=1.019;exitY=0.8;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3">
