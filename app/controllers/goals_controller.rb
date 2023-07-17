@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @goals = Goal.includes(:user).order("created_at DESC")
+    @goals = Goal.includes(:user).order("start_date DESC")
   end
 
   def show
