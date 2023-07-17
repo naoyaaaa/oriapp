@@ -31,16 +31,25 @@
       <%= image_tag("bouzu3.png") %>
     </div>
     <div class="status-description">バンド坊主<br>〜あなたは好奇心の塊魂〜</div>
+    
   <% elsif count >= 3 %>
     <div class="status-image">
       <%= image_tag("bouzu2.png") %>
     </div>
     <div class="status-description">大人坊主<br>〜時より経験が成長させる〜</div>
+
+ <% elsif count >= 1 %>
+    <div class="status-image">
+      <%= image_tag("bouzu4.png") %>
+    </div>
+    <div class="status-description">中坊主<br>〜3日も続けたあなたは天才〜</div>
+
   <% else %>
     <div class="status-image">
       <%= image_tag("bouzu1.png") %>
     </div>
     <div class="status-description">坊主<br>〜内なる力〜</div>
+
   <% end %>
 </div>
 
