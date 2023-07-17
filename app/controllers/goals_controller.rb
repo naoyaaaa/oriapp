@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @goals = Goal.all
+    @goals = Goal.includes(:user).order("created_at DESC")
   end
 
   def show
@@ -16,13 +16,12 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal = current_user.goals.build(goal_params)
     if @goal.save
-      redirect_to @goal, notice: 'Goal was successfully created.'
+      redirect_to root_path, notice: 'Goal was successfully created.'
     else
       puts @goal.errors.full_messages # エラーメッセージを出力
       render :new
     end
   end
-  
   
   
 
@@ -31,7 +30,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to @goal, notice: 'Goal was successfully updated.'
+      redirect_to root_path, notice: 'Goal was successfully updated.'
     else
       render :edit
     end
@@ -39,7 +38,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to goals_url, notice: 'Goal was successfully destroyed.'
+    redirect_to root_path
   end
 
   private

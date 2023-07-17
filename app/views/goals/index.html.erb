@@ -5,6 +5,7 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* 追加 */
   }
 
   .goal-card-title {
@@ -32,7 +33,23 @@
     border-radius: 5px;
     display: inline-block;
     margin-bottom: 5px;
+    border: 1px solid #000;
+
   }
+
+ .edit-button {
+  background-color: #f1c40f;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 5px;
+  position: absolute; /* 追加 */
+  top: 220px; /* 追加 */
+  right: 10px; /* 追加 */
+}
+
 </style>
 
 <div class="contents row">
@@ -43,6 +60,10 @@
       <p class="goal-card-description">説明:<%= goal.description %></p>
       <span class="goal-card-category"><%= goal.category %></span>
       <p class="goal-card-nickname">チャレンジャー: <%= goal.user.nickname %></p>
+
+      <div class="goal-card-actions">
+        <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
+      </div>
 
     </div>
   <% end %>
