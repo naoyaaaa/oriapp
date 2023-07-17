@@ -17,16 +17,12 @@
   
   <div class="right-column">
     
-    <div class="count-box">
-      <h4>Micca BOZE 達成数</h4>
-      <% count = 0 %> 
-      <% @goal.each do |goal| %>
-        <% if (Time.current.to_date - goal.start_date) >= 3 %>
-          <% count += 1 %>
-        <% end %>
-      <% end %>
-      <p class="count"><%=  count %> Micca!</p>
-    </div>
+ <div class="count-box">
+  <h4>Micca BOZE 達成数</h4>
+  <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
+  <p class="count"><%= count %> Micca!</p>
+</div>
+
     
 <div class="illustration">
   <div class="status-text">今のあなたのステータス</div>
@@ -34,7 +30,7 @@
     <div class="status-image">
       <%= image_tag("bouzu3.png") %>
     </div>
-    <div class="status-description">坊主DEバンド</div>
+    <div class="status-description">バンド坊主〜これであなたは好奇心大魔王〜</div>
   <% elsif count >= 3 %>
     <div class="status-image">
       <%= image_tag("bouzu2.png") %>
