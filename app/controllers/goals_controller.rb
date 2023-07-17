@@ -13,7 +13,6 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new(goal_params)
     @goal = current_user.goals.build(goal_params)
     if @goal.save
       redirect_to root_path, notice: 'Goal was successfully created.'
@@ -22,7 +21,6 @@ class GoalsController < ApplicationController
       render :new
     end
   end
-  
   
 
   def edit
