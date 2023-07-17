@@ -14,12 +14,17 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal = current_user.goals.build(goal_params)
     if @goal.save
       redirect_to @goal, notice: 'Goal was successfully created.'
     else
+      puts @goal.errors.full_messages # エラーメッセージを出力
       render :new
     end
   end
+  
+  
+  
 
   def edit
   end
@@ -46,4 +51,6 @@ class GoalsController < ApplicationController
   def goal_params
     params.require(:goal).permit(:title, :description, :category, :start_date, :image)
   end
+
+  
 end
