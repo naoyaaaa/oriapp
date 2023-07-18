@@ -1,0 +1,43 @@
+<div class="contents row">
+  <div class="left-column">
+    <h2>新しいリフレクションを作成</h2>
+    <%= render 'form', reflection: @reflection %>
+  </div>
+</div>
+
+<style>
+  /* フォームスタイルの追加 */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .submit-button {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #2980b9;
+  }
+</style>

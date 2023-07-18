@@ -1,3 +1,16 @@
+<div class="contents row">
+  <% @goals.each do |goal| %>
+    <div class="goal-card">
+      <h2 class="goal-card-title">Micca!ゴール:<%= goal.title %></h2>
+      <p class="goal-card-description">説明:<%= goal.description %></p>
+      <p class="goal-card-start-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
+      <p class="goal-card-end-date">終了日: <%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
+      <span class="goal-card-category"><%= goal.category %></span>
+      <p class="goal-card-nickname" style="text-align: right;">チャレンジャー: <%= goal.user.nickname %></p>
+    </div>
+  <% end %>
+</div>
+
 <style>
   .goal-card {
     background-color: #f2f2f2;
@@ -5,7 +18,7 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative; /* 追加 */
+    position: relative;
   }
 
   .goal-card-title {
@@ -14,13 +27,10 @@
     margin-bottom: 10px;
   }
 
-  .goal-card-start-date {
-    color: #888;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-
-  .goal-card-description {
+  .goal-card-start-date,
+  .goal-card-end-date,
+  .goal-card-description,
+  .goal-card-nickname {
     font-size: 16px;
     margin-bottom: 10px;
   }
@@ -34,37 +44,7 @@
     display: inline-block;
     margin-bottom: 5px;
     border: 1px solid #000;
-
   }
-
- .edit-button {
-  background-color: #f1c40f;
-  color: #fff;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-  margin-bottom: 5px;
-  position: absolute; /* 追加 */
-  top: 220px; /* 追加 */
-  right: 10px; /* 追加 */
-}
 
 </style>
 
-<div class="contents row">
-  <% @goals.each do |goal| %>
-    <div class="goal-card">
-      <h2 class="goal-card-title">Micca!ゴール:<%= goal.title %></h2>
-      <p class="goal-card-start-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
-      <p class="goal-card-description">説明:<%= goal.description %></p>
-      <span class="goal-card-category"><%= goal.category %></span>
-      <p class="goal-card-nickname">チャレンジャー: <%= goal.user.nickname %></p>
-
-      <div class="goal-card-actions">
-        <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
-      </div>
-
-    </div>
-  <% end %>
-</div>

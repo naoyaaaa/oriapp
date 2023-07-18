@@ -1,57 +1,80 @@
 <div class="contents row">
   <div class="left-column">
-    <p><%= @nickname %>さんのチャレンジ一覧</p>
+    <p><%= @nickname %>さんのアクション中チャレンジ</p>
     <% @goal.each do |goal| %>
       <div class="goal-card">
-        <h2 class="goal-card-title">Micca!ゴール:<%= goal.title %></h2>
-        <p class="goal-card-start-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
-        <p class="goal-card-description">説明:<%= goal.description %></p>
+        <h2 class="goal-card-title"><%= goal.title %></h2>
+        <p class="goal-card-description"><%= goal.description %></p>
+        <p class="goal-card-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
+        <p class="goal-card-date">終了日: <%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
         <span class="goal-card-category"><%= goal.category %></span>
-
         <div class="goal-card-actions">
           <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
         </div>
+
+        <% goal.reflections.each do |reflection| %>
+          <div class="reflection-card">
+            <p class="reflection-card-day"><%= reflection.day_number %>日目</p>
+            <p class="reflection-card-content">ふりかえり:<%= reflection.content %></p>
+          </div>
+        <% end %>
+
+        <% if goal.reflections.count < 3 %>
+          <% if goal.reflections.present? %>
+            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
+          <% else %>
+            <p>ふりかえりはありません<br><%= goal.reflections.count + 1 %>日目のふりかえりを書きましょう</p>
+            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
+          <% end %>
+        <% end %>
+             <% if goal.reflections.count >= 3 %>
+          <p>おめでとう！3日間の振り返りが完了しました！期間がすぎるとBOZUが成長します。</p>
+        <% end %>
       </div>
     <% end %>
   </div>
+
+
+
+
   
   <div class="right-column">
     
- <div class="count-box">
-  <h4>Micca BOZE 達成数</h4>
-  <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
-  <p class="count"><%= count %> Micca!</p>
-</div>
+    <div class="count-box">
+        <h4>Micca! 達成数<br><%= Time.current.strftime('%Y年%m月%d日') %>現在</h4>
+      <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
+      <p class="count"><%= count %> <br> Micca!</p>
+    </div>
 
     
-<div class="illustration">
-  <div class="status-text">今のあなたのステータス</div>
-  <% if count >= 5 %>
-    <div class="status-image">
-      <%= image_tag("bouzu3.png") %>
-    </div>
-    <div class="status-description">バンド坊主<br>〜あなたは好奇心の塊魂〜</div>
-    
-  <% elsif count >= 3 %>
-    <div class="status-image">
-      <%= image_tag("bouzu2.png") %>
-    </div>
-    <div class="status-description">大人坊主<br>〜時より経験が成長させる〜</div>
+    <div class="illustration">
+      <div class="status-text">あなたの<br>BOZU</div>
+      <% if count >= 5 %>
+        <div class="status-image">
+          <%= image_tag("bouzu3.png") %>
+        </div>
+        <div class="status-description">バンド坊主<br>〜あなたは好奇心の塊魂〜</div>
 
- <% elsif count >= 1 %>
-    <div class="status-image">
-      <%= image_tag("bouzu4.png") %>
-    </div>
-    <div class="status-description">中坊主<br>〜3日も続けたあなたは天才〜</div>
+      <% elsif count >= 3 %>
+        <div class="status-image">
+          <%= image_tag("bouzu2.png") %>
+        </div>
+        <div class="status-description">大人坊主<br>〜時より経験が成長させる〜</div>
 
-  <% else %>
-    <div class="status-image">
-      <%= image_tag("bouzu1.png") %>
-    </div>
-    <div class="status-description">坊主<br>〜内なる力〜</div>
+      <% elsif count >= 1 %>
+        <div class="status-image">
+          <%= image_tag("bouzu4.png") %>
+        </div>
+        <div class="status-description">中坊主<br>〜3日も続けたあなたは天才〜</div>
 
-  <% end %>
-</div>
+      <% else %>
+        <div class="status-image">
+          <%= image_tag("bouzu1.png") %>
+        </div>
+        <div class="status-description">坊主<br>〜内なる力〜</div>
+
+      <% end %>
+    </div>
 
   </div>
 </div>
@@ -62,12 +85,12 @@
   }
 
   .left-column {
-    width: 50%;
+    width: 68%;
     padding-right: 20px;
   }
 
   .right-column {
-    width: 50%;
+    width: 32%;
     padding-left: 20px;
   }
 
@@ -77,10 +100,11 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
   .count-box h4 {
-    font-size: 24px;
+    font-size: 12px;
     font-weight: bold;
     margin-bottom: 10px;
   }
@@ -93,7 +117,7 @@
   .illustration {
     text-align: center;
     margin-top: 20px;
-   background-color: #f2f2f2;
+    background-color: #f2f2f2;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -117,15 +141,12 @@
     margin-bottom: 10px;
   }
 
-  .goal-card-start-date {
-    color: #888;
+  .goal-card-start-date,
+  .goal-card-end-date,
+  .goal-card-description,
+  .goal-card-date { /* 調整部分 */
     font-size: 14px;
     margin-bottom: 5px;
-  }
-
-  .goal-card-description {
-    font-size: 16px;
-    margin-bottom: 10px;
   }
 
   .goal-card-category {
@@ -137,21 +158,23 @@
     display: inline-block;
     margin-bottom: 5px;
     border: 1px solid #000;
-
   }
 
- .edit-button {
-  background-color: #f1c40f;
-  color: #fff;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-  margin-bottom: 5px;
-  position: absolute; /* 追加 */
-  top: 100px; /* 追加 */
-  right: 10px; /* 追加 */
- }
-
-
+   .goal-card-date {
+    color: #888;
+  }
+  
+  .edit-button {
+    background-color: #FFD700;
+    color: #000; /* 文字を黒に設定 */
+    font-size: 12px; /* フォントサイズを小さく設定 */
+    padding: 4px 8px; /* パディングを小さく設定 */
+    border: 1px solid #000; /* 外側に黒い線を設定 */
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 </style>

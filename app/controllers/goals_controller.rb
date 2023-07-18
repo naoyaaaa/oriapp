@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to root_path, notice: 'Goal was successfully updated.'
+      redirect_to user_path, notice: 'Goal was successfully updated.'
     else
       render :edit
     end

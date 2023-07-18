@@ -94,36 +94,44 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>３日間チャレンジ投稿</h1>
-      <br>
-      <%= form_with(model: @goal, url: goals_path,  html: {multipart: true}) do |f| %>
-        <div class="form-group">
-          <%= f.label :title %>
-          <%= f.text_field :title, required: true %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :description %>
-          <%= f.text_area :description, rows: 5, required: true %>
-        </div>
-
-        <div class="form-group">
-        <%= f.label :category %>
-        <%= f.select :category, options_for_select(['健康', '学習', '趣味', '仕事', 'その他']), { include_blank: true }, { required: true } %>
-        </div>
-
-
-        <div class="form-group">
-          <%= f.label :start_date %>
-          <%= f.date_field :start_date, value: Time.now.strftime('%Y-%m-%d'), required: true %>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit '投稿する', class: 'submit-button' %>
-        </div>
-      <% end %>
+<div class="container">
+  <h1>３日間チャレンジ投稿</h1>
+  <br>
+  <%= form_with(model: @goal, url: goals_path,  html: {multipart: true}) do |f| %>
+    <div class="form-group">
+      <%= f.label :"Micca!ゴール" %>
+      <%= f.text_field :title, required: true %>
     </div>
+
+    <div class="form-group">
+      <%= f.label :"詳細/3日間のスケジュール" %>
+      <%= f.text_area :description, rows: 5, required: true %>
+    </div>
+
+    <div class="form-group">
+     <%= f.label :category %>
+     <%= f.select :category, options_for_select(['健康', '学習', '趣味', '仕事', 'その他']), { include_blank: true }, { required: true, class: 'category-select' } %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :start_date %>
+      <%# 本日の日付を表示 %>
+      <%= f.date_field :start_date, value: Time.now.strftime('%Y-%m-%d'), required: true, max: Time.now.strftime('%Y-%m-%d') ,min: Time.now.strftime('%Y-%m-%d')%>
+    </div>
+
+    <div class="form-group">
+      <%# 2日後の日付を表示（データベースには保存しない） %>
+      <label for="goal_end_date">目標終了日</label>
+      <input type="date" id="goal_end_date" value="<%= (Time.now + 2.days).strftime('%Y-%m-%d') %>" readonly>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit '投稿する', class: 'submit-button' %>
+    </div>
+  <% end %>
+</div>
+
 
 
   </body>
