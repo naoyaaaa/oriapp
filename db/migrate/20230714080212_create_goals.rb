@@ -8,6 +8,7 @@ class CreateGoals < ActiveRecord::Migration[7.0]
       t.date :start_date
       t.timestamps
 
+    
     end
   end
 end

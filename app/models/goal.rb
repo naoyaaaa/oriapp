@@ -5,5 +5,5 @@ class Goal < ApplicationRecord
   validates :start_date, presence: true
 
   belongs_to :user
-  has_many :reflections
+  has_many :reflections, dependent: :destroy
 end
