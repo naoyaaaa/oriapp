@@ -38,7 +38,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to root_path
+    redirect_to user_path
   end
 
   private

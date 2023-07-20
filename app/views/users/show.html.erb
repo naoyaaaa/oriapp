@@ -1,53 +1,10 @@
 <div class="contents row">
-  <div class="left-column">
-    <p><%= @nickname %>さんのアクション中チャレンジ</p>
-    <% @goal.each do |goal| %>
-      <div class="goal-card">
-        <h2 class="goal-card-title"><%= goal.title %></h2>
-        <p class="goal-card-description"><%= goal.description %></p>
-        <p class="goal-card-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
-        <p class="goal-card-date">終了日: <%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
-        <span class="goal-card-category"><%= goal.category %></span>
-        <div class="goal-card-actions">
-          <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
-        </div>
-
-        <% goal.reflections.each do |reflection| %>
-          <div class="reflection-card">
-            <p class="reflection-card-day"><%= reflection.day_number %>日目</p>
-            <p class="reflection-card-content">ふりかえり:<%= reflection.content %></p>
-          </div>
-        <% end %>
-
-        <% if goal.reflections.count < 3 %>
-          <% if goal.reflections.present? %>
-            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
-          <% else %>
-            <p>ふりかえりはありません<br><%= goal.reflections.count + 1 %>日目のふりかえりを書きましょう</p>
-            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
-          <% end %>
-        <% end %>
-             <% if goal.reflections.count >= 3 %>
-          <p>おめでとう！3日間の振り返りが完了しました！期間がすぎるとBOZUが成長します。</p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-
-
-
-  
-  <div class="right-column">
-    
-    <div class="count-box">
-        <h4>Micca! 達成数<br><%= Time.current.strftime('%Y年%m月%d日') %>現在</h4>
-      <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
-      <p class="count"><%= count %> <br> Micca!</p>
-    </div>
-
     
     <div class="illustration">
+          <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
+      <p class="count"><strong><%= count %></strong>Micca達成</p>
+
+
       <div class="status-text">あなたの<br>BOZU</div>
       <% if count >= 5 %>
         <div class="status-image">
@@ -74,44 +31,48 @@
         <div class="status-description">坊主<br>〜内なる力〜</div>
 
       <% end %>
-    </div>
+
+    <% @goal.each do |goal| %>
+       <div class="goal-card">
+      <h2 class="goal-card-title"><br><strong><%= goal.title %></strong><br>Miccaチャレンジ</h2>
+      <div class="goal-card-bubble">
+        <p class="goal-card-description">意気込み<br><%= goal.description %></p>
+      </div>
+      <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
+      <span class="goal-card-category"><%= goal.category %></span>
+        <div class="goal-card-actions">
+          <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
+        </div>
+
+        <% goal.reflections.each do |reflection| %>
+          <div class="reflection-card">
+            <p class="reflection-card-day"><%= reflection.day_number %>日目</p>
+            <p class="reflection-card-content">ふりかえり:<%= reflection.content %></p>
+          </div>
+        <% end %>
+
+        <% if goal.reflections.count < 3 %>
+          <% if goal.reflections.present? %>
+            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
+          <% else %>
+            <p>ふりかえりはありません<br><%= goal.reflections.count + 1 %>日目のふりかえりを書きましょう</p>
+            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
+          <% end %>
+        <% end %>
+             <% if goal.reflections.count >= 3 %>
+          <p>おめでとう！3日間の振り返りが完了しました！期間がすぎるとBOZUが成長します。</p>
+        <% end %>
+      </div>
+    <% end %>
+
 
   </div>
 </div>
 
+
 <style>
-  .contents {
-    display: flex;
-  }
-
-  .left-column {
-    width: 68%;
-    padding-right: 20px;
-  }
-
-  .right-column {
-    width: 32%;
-    padding-left: 20px;
-  }
-
-  .count-box {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .count-box h4 {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
   .count {
-    font-size: 48px;
-    font-weight: bold;
+    font-size: 20px;
   }
 
   .illustration {
@@ -177,4 +138,53 @@
     top: 10px;
     right: 10px;
   }
+
+  .goal-card {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding:  10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 350px;
+  margin: 10px auto;
+}
+
+.goal-card-title {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.goal-card-bubble {
+  background-color: transparent;
+  padding: 10px 15px;
+  border: 2px solid #57C3E9;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+
+.goal-card-description {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+
+.goal-card-start-date {
+  font-size: 15px;
+}
+
+.goal-card-category {
+   background-color: #6C8EBF;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid #000;
+}
+
 </style>

@@ -1,50 +1,65 @@
 <div class="contents row">
   <% @goals.each do |goal| %>
     <div class="goal-card">
-      <h2 class="goal-card-title">Micca!ゴール:<%= goal.title %></h2>
-      <p class="goal-card-description">説明:<%= goal.description %></p>
-      <p class="goal-card-start-date">開始日: <%= goal.start_date.strftime('%Y年%m月%d日') %></p>
-      <p class="goal-card-end-date">終了日: <%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
+      <h2 class="goal-card-title"><%= goal.user.nickname %>の<br><strong><%= goal.title %></strong><br>Miccaチャレンジ</h2>
+      <div class="goal-card-bubble">
+        <p class="goal-card-description">意気込み<br><%= goal.description %></p>
+      </div>
+      <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
       <span class="goal-card-category"><%= goal.category %></span>
-      <p class="goal-card-nickname" style="text-align: right;">チャレンジャー: <%= goal.user.nickname %></p>
     </div>
   <% end %>
 </div>
 
+
 <style>
-  .goal-card {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
+.goal-card {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding:  10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 350px;
+  margin: 10px auto;
+}
 
-  .goal-card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.goal-card-title {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0;
+}
 
-  .goal-card-start-date,
-  .goal-card-end-date,
-  .goal-card-description,
-  .goal-card-nickname {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+.goal-card-bubble {
+  background-color: transparent;
+  padding: 10px 15px;
+  border: 2px solid #57C3E9;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 15px;
+}
 
-  .goal-card-category {
-    background-color: #3498db;
-    color: #fff;
-    font-size: 14px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 5px;
-    border: 1px solid #000;
-  }
+
+.goal-card-description {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+
+.goal-card-start-date {
+  font-size: 15px;
+}
+
+.goal-card-category {
+   background-color: #6C8EBF;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid #000;
+}
 
 </style>
 
