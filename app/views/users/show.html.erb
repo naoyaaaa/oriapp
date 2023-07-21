@@ -36,7 +36,7 @@
        <div class="goal-card">
       <h2 class="goal-card-title"><br><strong><%= goal.title %></strong><br>Miccaチャレンジ</h2>
       <div class="goal-card-bubble">
-        <p class="goal-card-description">意気込み<br><%= goal.description %></p>
+        <p class="goal-card-description">3日間、<%= goal.description %>を最低限必ずやり遂げます！</p>
       </div>
       <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
       <span class="goal-card-category"><%= goal.category %></span>

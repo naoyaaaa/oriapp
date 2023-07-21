@@ -1,0 +1,27 @@
+<!-- app/views/welcome/index.html.erb -->
+<div class="container">
+  <h1>ようこそ、MICCA BOZUへ！</h1>
+  <!-- イラストを表示 -->
+  <%= image_tag("bouzu1.png", alt: "MICCA BOZUのイラスト", class: "illustration") %>
+  <p>
+    このアプリに辿り着いたあなたはとても素敵です！何かにチャレンジしようとする気持ちがあるのですから！</p>
+  <p>
+    何かを始めるための最初の一歩を踏み出してみましょう！※説明を書くよ※
+  </p>
+  <!-- ログイン画面へのリンクを追加 -->
+  <%= link_to 'ログイン', new_user_session_path %>
+</div>
+
+
+<style>
+.container {
+  text-align: center; /* イラストを中央に配置するためのスタイル */
+}
+
+.illustration {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0; /* イラストの上下に余白を追加 */
+}
+
+</style>

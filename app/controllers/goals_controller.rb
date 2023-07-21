@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to user_path, notice: 'Goal was successfully updated.'
+      redirect_to user_path(current_user), notice: '更新が成功しました。'
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to user_path
+    redirect_to user_path(current_user)
   end
 
   private

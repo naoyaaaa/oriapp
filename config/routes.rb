@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to:"goals#index"
+  root 'welcome#index'
   resources :goals do
     resources :reflections
   end

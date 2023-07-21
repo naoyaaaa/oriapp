@@ -137,7 +137,11 @@
       display: inline-block;
       border: 1px solid #000;
     }
+
+ 
   </style>
+
+
 </head>
 <body>
   <div class="container">
@@ -146,13 +150,10 @@
     <%= form_with(model: @goal, url: goals_path,  html: {multipart: true}) do |f| %>
       <div class="form-group">
         <b><%= "#{current_user.nickname}の" if current_user %></b>
-        <%= f.text_field :title, required: true %>
-        <%= f.label :"Miccaチャレンジ" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :"意気込み（スケジュール/詳細など）" %>
-        <%= f.text_area :description, rows: 5, required: true %>
+        <%= f.text_field :title, placeholder: "ジョギング", required: true %>
+        <%= f.label :"Miccaチャレンジでは3日間" %>
+        <%= f.text_area :description, rows: 5, placeholder: "雨が降っていようが、着替えて玄関まで行って靴を履くところまで\n\n※行動をなるべく最小単位にすると動きやすいですよ※",required: true %>
+        <%= f.label :"を、最低限必ずやり遂げます！" %>
       </div>
 
       <div class="form-group">
@@ -173,7 +174,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit '投稿する', class: 'submit-button' %>
+        <%= f.submit '宣言して気合いを入れる', class: 'submit-button' %>
       </div>
     <% end %>
   </div>
@@ -182,3 +183,10 @@
 
 
 <%# max: Time.now.strftime('%Y-%m-%d') ,min: Time.now.strftime('%Y-%m-%d') %>
+
+
+
+
+
+
+
