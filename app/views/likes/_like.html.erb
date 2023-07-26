@@ -48,3 +48,17 @@
 }
 
 </style>
+
+<script>
+document.addEventListener('turbo:load', () => {
+  const likeButton = document.querySelector('.goal-like-button');
+  const likesCount = document.querySelector('.likes-count');
+
+  likeButton.addEventListener('ajax:success', (event) => {
+    const [data, status, xhr] = event.detail;
+    const newLikesCount = data.likes_count;
+
+    likesCount.innerHTML = `声援の数: ${newLikesCount}`;
+  });
+});
+</script>
