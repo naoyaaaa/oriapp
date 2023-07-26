@@ -169,7 +169,7 @@
 
       <div class="form-group">
         <%# 2日後の日付を表示（データベースには保存しない） %>
-        <label for="goal_end_date">チャレンジ終了日（ふりかえり日）</label>
+        <label for="goal_end_date">チャレンジ終了日</label>
         <input type="date" id="goal_end_date" value="<%= (Time.now + 2.days).strftime('%Y-%m-%d') %>" readonly>
       </div>
 
