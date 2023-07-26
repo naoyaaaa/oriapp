@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  
   def show
     @user = User.find(params[:id])
-    @nickname = @user.nickname
-    @goal = @user.goals
-    @reflections = Reflection.where(goal: @goal)
+    @goals = @user.goals.includes(:reflections).order(created_at: :desc)
+    @reflection_goal_count = @goals.count { |goal| goal.reflections.count == 3 && goal.start_date <= Time.current.to_date - 2.days }
+    @total_count = @reflection_goal_count 
   end
 end

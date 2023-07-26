@@ -1,45 +1,38 @@
 <div class="contents row">
-    
-    <div class="illustration">
-          <% count = current_user.goals.where("start_date <= ?", Time.current.to_date - 3.days).count %>
-      <p class="count"><strong><%= count %></strong>Micca達成</p>
+  <div class="illustration">
+    <p class="count"><strong><%= @total_count %></strong>Micca達成</p>
 
-
-      <div class="status-text">あなたの<br>BOZU</div>
-      <% if count >= 5 %>
-        <div class="status-image">
-          <%= image_tag("bouzu3.png") %>
-        </div>
-        <div class="status-description">バンド坊主<br>〜あなたは好奇心の塊魂〜</div>
-
-      <% elsif count >= 3 %>
-        <div class="status-image">
-          <%= image_tag("bouzu2.png") %>
-        </div>
-        <div class="status-description">大人坊主<br>〜時より経験が成長させる〜</div>
-
-      <% elsif count >= 1 %>
-        <div class="status-image">
-          <%= image_tag("bouzu4.png") %>
-        </div>
-        <div class="status-description">中坊主<br>〜3日も続けたあなたは天才〜</div>
-
-      <% else %>
-        <div class="status-image">
-          <%= image_tag("bouzu1.png") %>
-        </div>
-        <div class="status-description">坊主<br>〜内なる力〜</div>
-
-      <% end %>
-
-    <% @goal.each do |goal| %>
-       <div class="goal-card">
-      <h2 class="goal-card-title"><br><strong><%= goal.title %></strong><br>Miccaチャレンジ</h2>
-      <div class="goal-card-bubble">
-        <p class="goal-card-description">3日間、<%= goal.description %>を最低限必ずやり遂げます！</p>
+    <div class="status-text">あなたの<br>BOZU</div>
+    <% if @total_count >= 5 %>
+      <div class="status-image">
+        <%= image_tag("bouzu3.png") %>
       </div>
-      <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
-      <span class="goal-card-category"><%= goal.category %></span>
+      <div class="status-description">バンド坊主<br>〜あなたは好奇心の塊魂〜</div>
+    <% elsif @total_count >= 3 %>
+      <div class="status-image">
+        <%= image_tag("bouzu2.png") %>
+      </div>
+      <div class="status-description">大人坊主<br>〜時より経験が成長させる〜</div>
+    <% elsif @total_count >= 1 %>
+      <div class="status-image">
+        <%= image_tag("bouzu4.png") %>
+      </div>
+      <div class="status-description">中坊主<br>〜3日も続けたあなたは天才〜</div>
+    <% else %>
+      <div class="status-image">
+        <%= image_tag("bouzu1.png") %>
+      </div>
+      <div class="status-description">坊主<br>〜内なる力〜</div>
+    <% end %>
+
+    <% @goals.each do |goal| %>
+      <div class="goal-card">
+        <h2 class="goal-card-title"><br><strong><%= goal.title %></strong><br>Miccaチャレンジ</h2>
+        <div class="goal-card-bubble">
+          <p class="goal-card-description">3日間、<%= goal.description %>を最低限必ずやり遂げます！</p>
+        </div>
+        <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
+        <span class="goal-card-category"><%= goal.category %></span>
         <div class="goal-card-actions">
           <%= link_to '編集', edit_goal_path(goal.id), class: 'edit-button' %>
         </div>
@@ -51,24 +44,28 @@
           </div>
         <% end %>
 
-        <% if goal.reflections.count < 3 %>
-          <% if goal.reflections.present? %>
-            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
-          <% else %>
-            <p>ふりかえりはありません<br><%= goal.reflections.count + 1 %>日目のふりかえりを書きましょう</p>
-            <%= link_to '新しいリフレクションを作成', new_goal_reflection_path(goal_id: goal.id) %>
-          <% end %>
-        <% end %>
-             <% if goal.reflections.count >= 3 %>
-          <p>おめでとう！3日間の振り返りが完了しました！期間がすぎるとBOZUが成長します。</p>
+   <% if goal.reflections.count < 3 %>
+  <% if goal.reflections.empty? && Time.current >= goal.start_date %>
+    <%= link_to 'ふりかえりをかく', new_goal_reflection_path(goal_id: goal.id), class: 'btn btn-primary' %>
+  <% elsif goal.reflections.count == 1 && Time.current >= goal.start_date + 1.day %>
+    <%= link_to 'ふりかえりをかく', new_goal_reflection_path(goal_id: goal.id), class: 'btn btn-primary' %>
+  <% elsif goal.reflections.count == 2 && Time.current >= goal.start_date + 2.days %>
+    <%= link_to 'ふりかえりをかく（Micca達成）', new_goal_reflection_path(goal_id: goal.id), class: 'btn btn-primary' %>
+  <% else %>
+    <p>今日はお疲れ様。また明日。</p>
+  <% end %>
+<% end %>
+
+
+
+
+        <% if goal.reflections.count == 3 %>
+         <p>おめでとうございます！<br>見事三日坊主が完了しました！<br>Miccaが１増えました！<br></p>
         <% end %>
       </div>
     <% end %>
-
-
   </div>
 </div>
-
 
 <style>
   .count {
@@ -186,5 +183,16 @@
   display: inline-block;
   border: 1px solid #000;
 }
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
 
 </style>
