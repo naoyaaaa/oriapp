@@ -8,6 +8,11 @@
       <p class="goal-card-start-date"><%= goal.start_date.strftime('%Y年%m月%d日') %>~<%= (goal.start_date + 2.days).strftime('%Y年%m月%d日') %></p>
       <span class="goal-card-category"><%= goal.category %></span>
     </div>
+
+      <div id="like-btn<%= goal.id %>">
+    <%= render partial: "likes/like", locals: { goal: goal } %>
+  </div>
+
   <% end %>
 </div>
 

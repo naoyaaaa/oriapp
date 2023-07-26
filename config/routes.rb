@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :goals do
     resources :reflections
+    resource :likes, only: [:create, :destroy]
   end
   resources :users
  
