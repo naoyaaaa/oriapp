@@ -4,7 +4,7 @@
   <p class="likes-count">声援の数: <%= goal.likes_count %></p>
 
   <!-- いいねボタン -->
-  <%= link_to goal_likes_path(goal.id), data: { turbo_method: :post }, class: "goal-like-button" do %>
+  <%= link_to goal_likes_path(goal.id), data: { turbo_method: :post }, class: "goal-like-button", remote: true do %>
     <svg class="heart-icon" fill="#FF69B4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
       <path d="M0 0h24v24H0z" fill="none" />
       <path
@@ -48,4 +48,3 @@
 }
 
 </style>
-
