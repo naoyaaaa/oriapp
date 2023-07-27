@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     like.save
     respond_to do |format|
       format.html { redirect_to root_path } # HTML形式のリクエストに対するレスポンス
-      format.json { render json: { message: "いいねが追加されました", likes_count: goal.likes_count } } # JSON形式のリクエストに対するレスポンス
+      format.json { render json: { message: "いいねが追加されました", likes_count: @goal.likes_count } } # JSON形式のリクエストに対するレスポンス
       format.js
     end
   end
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
     like.destroy
     respond_to do |format|
       format.html { redirect_to root_path } # HTML形式のリクエストに対するレスポンス
-      format.json { render json: { message: "いいねが削除されました", likes_count: goal.likes_count } } # JSON形式のリクエストに対するレスポンス
+      format.json { render json: { message: "いいねが削除されました", likes_count: @goal.likes_count } } # JSON形式のリクエストに対するレスポンス
       format.js
     end
   end
@@ -25,5 +25,4 @@ class LikesController < ApplicationController
   def set_goal
     @goal = Goal.find(params[:goal_id])
   end
-
 end

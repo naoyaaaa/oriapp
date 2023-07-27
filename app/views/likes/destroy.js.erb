@@ -1,4 +1,1 @@
-// destroy.js.erb
-
-// いいねの数とボタンを更新する処理
 document.getElementById('like-btn<%= @goal.id %>').innerHTML = '<%= j(render partial: 'likes/like', locals: { goal: @goal }) %>';
