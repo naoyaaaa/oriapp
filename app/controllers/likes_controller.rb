@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :set_goal
+  before_action :authenticate_user!
 
   def create
     like = current_user.likes.build(goal_id: params[:goal_id])

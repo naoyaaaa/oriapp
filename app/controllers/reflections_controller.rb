@@ -1,4 +1,6 @@
 class ReflectionsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @goal = Goal.find(params[:goal_id])
     @reflection = @goal.reflections.build
