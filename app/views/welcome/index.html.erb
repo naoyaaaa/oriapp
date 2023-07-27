@@ -1,27 +1,69 @@
-<!-- app/views/welcome/index.html.erb -->
 <div class="container">
   <h1>ようこそ、MICCA BOZUへ！</h1>
-  <!-- イラストを表示 -->
   <%= image_tag("bouzu1.png", alt: "MICCA BOZUのイラスト", class: "illustration") %>
-  <p>
-    このアプリに辿り着いたあなたはとても素敵です！何かにチャレンジしようとする気持ちがあるのですから！</p>
-  <p>
-    何かを始めるための最初の一歩を踏み出してみましょう！※説明を書くよ※
-  </p>
-  <!-- ログイン画面へのリンクを追加 -->
-  <%= link_to 'ログイン', new_user_session_path %>
+  <div class="app-info">
+    <h2>知ってましたか？<br>３日坊主って最高なんです</h2>
+    <p>
+  <b>MICCA BOZUは、シンプルな機能で、<br><span class="highlight">3日坊主であることを全力応援する</span>アプリです。</b>
+  <br>3日坊主で何が悪い！たくさんのチャレンジを積み重ねて、多彩な経験を積み重ね、魅力的な人間になろう！
+</p>
+
+
+    <h2>このアプリでできること</h2>
+    <ul>
+      <li><b>１目標の設定</b><br>とりあえず３日だけ続けたい目標を設定しよう。ハードルは低ければ低いほどいい。</li>
+      <br>
+      <li><b>２ふりかえり記録</b><br>マイページで自分にしか見えない本音をふりかえり、自分を深ぼろう。</li>
+      <br>
+      <li><b>３えらいぞボタン（連打可）</b><br>見てくれている誰かがいることがモチベーションの1つに。他の人のチャレンジも自分の参考に。</li>
+      <br>
+      <li><b>４坊主を成長させる</b><br>あなたの頑張りで坊主が成長。<span class="highlight">5回のチャレンジで坊主が大暴れ！？</span>見逃すな！</li>
+      <br>
+    </ul>
+
+    <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-primary' %>
+    <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-primary' %>
+  </div>
 </div>
 
-
 <style>
-.container {
-  text-align: center; /* イラストを中央に配置するためのスタイル */
+.app-info {
+  margin-top: 40px;
 }
 
-.illustration {
-  max-width: 100%;
-  height: auto;
-  margin: 20px 0; /* イラストの上下に余白を追加 */
+.app-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.app-info p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.app-info ul li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* いいねボタンのスタイル */
+.highlight {
+  font-weight: bold;
+  color: red;
 }
 
 </style>

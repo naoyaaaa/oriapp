@@ -1,31 +1,15 @@
 <!-- likes/_like.html.erb -->
 <div class="likes-container">
   <!-- いいねの数を表示 -->
-  <p class="likes-count">声援の数: <%= goal.likes_count %></p>
+  
 
-  <!-- いいねボタン -->
+
   <%= link_to goal_likes_path(goal.id), data: { turbo_method: :post }, class: "goal-like-button", remote: true do %>
-    <svg class="heart-icon" fill="#FF69B4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path
-        d="M12 4.672c-1.45 0-2.819.641-3.727 1.755C7.819 5.313 6.45 4.672 5 4.672 2.239 4.672 0 6.911 0 9.678c0 3.414 2.666 5.81 6.89 9.576 1.22 1.16 2.535 2.35 3.987 3.546.677.609 1.496.61 2.172 0 1.452-1.196 2.766-2.386 3.986-3.546C21.333 15.488 24 13.092 24 9.678c0-2.767-2.24-5.006-5-5.006-1.45 0-2.819.641-3.727 1.755C14.82 5.313 13.45 4.672 12 4.672z"
-      />
-    </svg>
-    応援するボタン
+   <p class="likes-count">💪<%= goal.likes_count %>えらいゾ！</p>
   <% end %>
 </div>
 
 <style>
-/* ハートアイコンのスタイル */
-.heart-icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  fill: #FF69B4;
-  border-radius: 50%; /* 丸い部分だけを表示するためのスタイル */
-}
-
-/* いいねの数とボタンを横並びにするための親要素のスタイル */
 .likes-container {
   display: flex;
   align-items: center;
@@ -37,15 +21,10 @@
 .likes-count {
   font-weight: bold;
   margin-right: 10px;
+  color: #FF69B4;
 }
 
-/* いいねボタンのスタイル */
-.goal-like-button {
-  font-weight: bold;
-  color: #FF69B4;
-  text-decoration: none;
-  cursor: pointer;
-}
+
 
 </style>
 
