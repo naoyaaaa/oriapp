@@ -1,7 +1,5 @@
 <div class="contents row">
   <div class="illustration">
-    <p class="count"><strong><%= @total_count %></strong>Micca達成</p>
-
     <div class="status-text">あなたの<br>BOZU</div>
     <% if @total_count >= 5 %>
       <div class="status-image">
@@ -24,6 +22,10 @@
       </div>
       <div class="status-description">坊主<br>〜内なる力〜</div>
     <% end %>
+
+    <p class="highlight"><%= @total_count %>Micca達成</p>
+
+    <p><b>坊主の成長に必要なMICCAは、<br>3日経過&ふりかえりを3日分書くと<br>貯まります</b></p>
 
     <% @goals.each do |goal| %>
       <div class="goal-card">
@@ -68,9 +70,9 @@
 </div>
 
 <style>
-  .count {
-    font-size: 20px;
-  }
+
+
+
 
   .illustration {
     text-align: center;
@@ -81,6 +83,26 @@
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative; /* 追加 */
+  }
+
+    .status-image {
+    max-width: 150px; /* 画像の最大幅を指定して調整します */
+    margin: 0 auto; /* 画像を中央に配置するためのマージン指定 */
+  }
+
+  .status-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .status-text {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .status-description {
+    font-size: 14px;
   }
 
   
@@ -193,6 +215,10 @@
   background-color: #0056b3;
   border-color: #0056b3;
 }
-
+.highlight {
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
 
 </style>
