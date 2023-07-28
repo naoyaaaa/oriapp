@@ -1,18 +1,24 @@
 # アプリケーション名	
-シン・3日坊主
+MICCA BOZU
 
 # アプリケーション概要
-* 自分が今までちょっと試してみたかったことのログを残すことができる
-* ユーザー同士で応援し合い、新しいチャレンジの情報を得ることができる
+自分の「3日でいいから続けてみたいこと」の宣言と振り返りを通して、様々なことに対してチャレンジし、振り返る習慣をつけることができる。
 
 # URL
 * https://oriapp.onrender.com
 
 # テスト用アカウント
-* ログイン機能等を実装した場合は、ログインに必要な情報を記載。またBasic認証等を設けている場合は、そのID/Passも記載すること。
+* Basic認証/ユーザー名:admin
+* Basic認証/パスワード：２２２２
+* ログイン/Email:aaa@aaa
+* ログイン/Password:111aaa
 
-# 利用方法
-* このアプリケーションの利用方法を記載。説明が長い場合は、箇条書きでリスト化すること。
+# 利用方法 
+1　トップページからユーザー新規登録を行う
+２　ヘッダーの「宣言する」ボタンより、目標を入力するページに遷移し、目標の内容を入力し、投稿する
+３　マイページにて１日終了毎に、目標の振り返りを記入する
+４　３日経過＆振り返り3回投稿にて「Miccaポイント」をゲットし、キャラクターの坊主が成長する
+（適宜）目標一覧画面にて、それぞれ目標に対して「えらいぞボタン」を何度でも押すことができる。
 
 # アプリケーションを作成した背景
 * 20・30代の若手社会人「勉強しようと思うけど続かなくて・・・・」という悩みに「続けようと思えるものに出会えていないのでは」という答えを。
@@ -22,10 +28,24 @@
 https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9-O8/edit#gid=1785908763
 
 # 実装した機能についての画像やGIFおよびその説明
-* 実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
+ログイン前の画面でユーザーに概要説明
+
+[![Image from Gyazo](https://i.gyazo.com/a379e4d6f57d1be1eb9a4db0f6a11237.gif)](https://gyazo.com/a379e4d6f57d1be1eb9a4db0f6a11237)
+
+目標を打ち込むとタイムラインに投稿されます。目標の立て方は動機づけがしやすい目標の立て方を、事前に表示させガイドします。
+
+[![Image from Gyazo](https://i.gyazo.com/9f01bfb0a3a7aa22a056ab2ea541903f.gif)](https://gyazo.com/9f01bfb0a3a7aa22a056ab2ea541903f)
+
+立てた目標には１日に１度ふりかえりを書くフォームが現れ、記録できます
+
+[![Image from Gyazo](https://i.gyazo.com/be82df127b046c54c410ee4311c3b1cc.gif)](https://gyazo.com/be82df127b046c54c410ee4311c3b1cc)
+
+いいな、と思う投稿には無限にいいねがつけられます
+
+[![Image from Gyazo](https://i.gyazo.com/308449d9843ebfbc9bc4e4b175b2b5d4.gif)](https://gyazo.com/308449d9843ebfbc9bc4e4b175b2b5d4)
 
 # 実装予定の機能
-* 洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
+* コメント機能(お互いに励ましのコメントを送ることができる)
 
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
@@ -34,10 +54,8 @@ https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9
 [![Image from Gyazo](https://i.gyazo.com/75e6d53127518fad314d29f89da80565.png)](https://gyazo.com/75e6d53127518fad314d29f89da80565)
 
 # 開発環境
-* 使用した言語・サービスを記載。
-
-# ローカルでの動作方法
-* git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記載。
+Ruby/Ruby on Rails/MySQL/Github/Render/Visual Studio Code
 
 # 工夫したポイント
-* 制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
+* 実際の友人をペルソナとしてヒアリング、仮完成の後に使用してもらいフィードバックをもらい、改善を重ねました。
+* 多くの人はPCを開く手間が大きいと考え、基本的にスマートフォンで活用できるようにビューファイルを検討しました。
