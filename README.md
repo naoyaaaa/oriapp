@@ -48,10 +48,10 @@ https://docs.google.com/spreadsheets/d/1Pa6wnP6DaNTFTSTnW44iA7QYijISl9JeHa98rVR9
 * コメント機能(お互いに励ましのコメントを送ることができる)
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f.png)](https://gyazo.com/81ce3e30adf4c45c2b24bdadfcef573f)
+[![Image from Gyazo](https://i.gyazo.com/76276fd21692c7048ac83e359e30aef2.png)](https://gyazo.com/76276fd21692c7048ac83e359e30aef2)
 
 # 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/75e6d53127518fad314d29f89da80565.png)](https://gyazo.com/75e6d53127518fad314d29f89da80565)
+[![Image from Gyazo](https://i.gyazo.com/fece385e2191a14ea33d937a9b31590e.png)](https://gyazo.com/fece385e2191a14ea33d937a9b31590e)
 
 # 開発環境
 Ruby/Ruby on Rails/MySQL/Github/Render/Visual Studio Code
